@@ -1,0 +1,118 @@
+
+images1.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+BadFood
+  rotate: false
+  xy: 204, 40
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Char
+  rotate: false
+  xy: 204, 106
+  size: 320, 64
+  orig: 320, 64
+  offset: 0, 0
+  index: -1
+Enemy
+  rotate: false
+  xy: 728, 106
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Food
+  rotate: false
+  xy: 810, 188
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+consumablePoint
+  rotate: false
+  xy: 810, 181
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+emptyHealth
+  rotate: false
+  xy: 204, 6
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemyPoint
+  rotate: false
+  xy: 312, 99
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 728, 64
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+health
+  rotate: false
+  xy: 876, 223
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+joystick
+  rotate: false
+  xy: 2, 2
+  size: 200, 250
+  orig: 200, 250
+  offset: 0, 0
+  index: -1
+mapBack
+  rotate: false
+  xy: 526, 52
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+playerPoint
+  rotate: false
+  xy: 794, 160
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+shortButton
+  rotate: false
+  xy: 728, 172
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+simpleButton
+  rotate: false
+  xy: 204, 172
+  size: 320, 80
+  orig: 320, 80
+  offset: 0, 0
+  index: -1
+star16
+  rotate: false
+  xy: 270, 46
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall
+  rotate: false
+  xy: 270, 64
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1

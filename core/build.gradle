@@ -1,0 +1,16 @@
+apply plugin: "java"
+
+targetCompatibility = 1.7
+sourceCompatibility = 1.7
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+
+eclipse.project {
+    name = appName + "-core"
+}
+
+dependencies {
+    implementation 'net.java.jinput:jinput:2.0.5'
+}
