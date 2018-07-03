@@ -24,6 +24,14 @@ public class Hero extends Cell {
     private int lostHP;
     private int heroScoreId;
 
+    public boolean isAccelerated() {
+        return accelerated;
+    }
+
+    public int getAccelTime() {
+        return accelTime;
+    }
+
     public void setHeroScoreId(int heroScoreId) {
         this.heroScoreId = heroScoreId;
     }
@@ -45,6 +53,7 @@ public class Hero extends Cell {
     }
 
     public void reloadResources(GameScreen gs, Joystick joystick) {
+        super.restoreTimer();
         this.gs = gs;
         this.joystick = joystick;
         this.regions = new TextureRegion(Assets.getInstance().getAtlas().findRegion("Char")).split(64, 64)[0];
@@ -106,20 +115,19 @@ public class Hero extends Cell {
             float angleToTarget = joystick.getAngle();
             if (angle > angleToTarget) {
                 if (Math.abs(angle - angleToTarget) <= 180.0f) {
-                    angle -= 180.0f * dt;
+                    angle -= agility * dt;
                 } else {
-                    angle += 180.0f * dt;
+                    angle += agility * dt;
                 }
             }
             if (angle < angleToTarget) {
                 if (Math.abs(angle - angleToTarget) <= 180.0f) {
-                    angle += 180.0f * dt;
+                    angle += agility * dt;
                 } else {
-                    angle -= 180.0f * dt;
+                    angle -= agility * dt;
                 }
             }
-            acceleration = joystick.getPower() * 300;
-            velocity.add(acceleration * (float) Math.cos(Math.toRadians(angle)) * dt, acceleration * (float) Math.sin(Math.toRadians(angle)) * dt);
+            velocity.add(acceleration * joystick.getPower() * (float) Math.cos(Math.toRadians(angle)) * dt, acceleration * joystick.getPower() * (float) Math.sin(Math.toRadians(angle)) * dt);
         }
         gs.getParticleEmitter().setup(position.x, position.y, MathUtils.random(-10, 10), MathUtils.random(-10, 10), 0.5f, 5f, 2f, 0.3f, 0.3f, 0, 0.2f, 0.2f, 0.2f, 0, 0);
     }

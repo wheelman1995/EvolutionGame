@@ -18,9 +18,10 @@ public class ConsumableEmitter extends ObjectPool<Consumable> {
 
     public void reloadResources(GameScreen gs) {
         this.gs = gs;
-        this.regions = new TextureRegion[2];
+        this.regions = new TextureRegion[3];
         this.regions[Consumable.Type.FOOD.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("Food");
         this.regions[Consumable.Type.BAD_FOOD.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("BadFood");
+        this.regions[Consumable.Type.SPEEDUP.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("speedup");
         for (int i = 0; i < activeList.size(); i++) {
             activeList.get(i).reloadResources(gs, regions);
         }
@@ -31,9 +32,10 @@ public class ConsumableEmitter extends ObjectPool<Consumable> {
 
     public ConsumableEmitter(GameScreen gs) {
         this.gs = gs;
-        this.regions = new TextureRegion[2];
+        this.regions = new TextureRegion[3];
         this.regions[Consumable.Type.FOOD.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("Food");
         this.regions[Consumable.Type.BAD_FOOD.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("BadFood");
+        this.regions[Consumable.Type.SPEEDUP.getTextureIndex()] = Assets.getInstance().getAtlas().findRegion("speedup");
         this.generateConsumable(500);
         this.badFoodChance = 10;
     }
@@ -57,9 +59,15 @@ public class ConsumableEmitter extends ObjectPool<Consumable> {
     }
 
     public void generateConsumable() {
+        boolean typeChanged = false;
         Consumable.Type type = Consumable.Type.FOOD;
-        if (MathUtils.random(0, 100) < badFoodChance) {
+        if (MathUtils.random(1, 100) <= badFoodChance) {
             type = Consumable.Type.BAD_FOOD;
+            typeChanged = true;
+        }
+        if (!typeChanged && MathUtils.random(1, 100) <= 2) {
+            type = Consumable.Type.SPEEDUP;
+            typeChanged = true;
         }
         getActiveElement().init(type);
     }

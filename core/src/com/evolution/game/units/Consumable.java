@@ -11,7 +11,7 @@ import com.evolution.game.Rules;
 
 public class Consumable extends GamePoint {
     public enum Type {
-        FOOD(0), BAD_FOOD(1);
+        FOOD(0), BAD_FOOD(1), SPEEDUP(2);
 
         private int textureIndex;
 

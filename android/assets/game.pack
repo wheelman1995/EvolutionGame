@@ -1,12 +1,12 @@
 
-images1.png
+images.png
 size: 1024,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 BadFood
   rotate: false
-  xy: 204, 40
+  xy: 728, 106
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -20,7 +20,7 @@ Char
   index: -1
 Enemy
   rotate: false
-  xy: 728, 106
+  xy: 204, 40
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -34,7 +34,7 @@ Food
   index: -1
 consumablePoint
   rotate: false
-  xy: 810, 181
+  xy: 728, 57
   size: 5, 5
   orig: 5, 5
   offset: 0, 0
@@ -48,21 +48,21 @@ emptyHealth
   index: -1
 enemyPoint
   rotate: false
-  xy: 312, 99
+  xy: 810, 181
   size: 5, 5
   orig: 5, 5
   offset: 0, 0
   index: -1
 grass
   rotate: false
-  xy: 728, 64
+  xy: 876, 212
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
 health
   rotate: false
-  xy: 876, 223
+  xy: 316, 75
   size: 32, 29
   orig: 32, 29
   offset: 0, 0
@@ -102,16 +102,23 @@ simpleButton
   orig: 320, 80
   offset: 0, 0
   index: -1
+speedup
+  rotate: false
+  xy: 270, 60
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
 star16
   rotate: false
-  xy: 270, 46
+  xy: 270, 42
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 wall
   rotate: false
-  xy: 270, 64
+  xy: 728, 64
   size: 40, 40
   orig: 40, 40
   offset: 0, 0

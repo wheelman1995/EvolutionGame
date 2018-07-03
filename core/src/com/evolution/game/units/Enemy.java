@@ -28,6 +28,7 @@ public class Enemy extends Cell {
     }
 
     public void reloadResources(GameScreen gs) {
+        super.restoreTimer();
         this.gs = gs;
         this.texture = Assets.getInstance().getAtlas().findRegion("Enemy");
     }
@@ -69,6 +70,9 @@ public class Enemy extends Cell {
                     case BAD_FOOD:
                         move(dt, runAngle);
                         break;
+                    case SPEEDUP:
+                        move(dt, angleToTarget);
+                        break;
                 }
                 break;
             case "Hero":
@@ -85,16 +89,16 @@ public class Enemy extends Cell {
     private void move(float dt, float moveAngle){
         if(angle < moveAngle) {
             if(Math.abs(angle - moveAngle) <= 180) {
-                angle += 180 * dt;
+                angle += agility * dt;
             } else {
-                angle -= 180 * dt;
+                angle -= agility * dt;
             }
         }
         if(angle > moveAngle) {
             if(Math.abs(angle - moveAngle) <= 180) {
-                angle -= 180 * dt;
+                angle -= agility * dt;
             } else {
-                angle += 180 * dt;
+                angle += agility * dt;
             }
         }
         velocity.add(acceleration * (float) Math.cos(Math.toRadians(angle)) * dt, acceleration * (float) Math.sin(Math.toRadians(angle)) * dt);

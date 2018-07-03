@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -56,6 +57,7 @@ public class GameScreen implements Screen {
     private TextButton resumeBtn;
     private TextButton menuBtn;
     private InputMultiplexer im;
+    private StringBuilder accelTime;
 
     public void saveHeroScoreId(int heroScoreId) {
         this.heroScoreId = heroScoreId;
@@ -141,6 +143,10 @@ public class GameScreen implements Screen {
         hero.renderGUI(batch, font);
         miniMap.render(batch);
         joystick.render(batch);
+        if(hero.isAccelerated()) {
+            accelTime.setLength(0);
+            font.draw(batch, accelTime.append(hero.getAccelTime()), 10.0f, 600.0f);
+        }
         batch.end();
         stage.draw();
     }
@@ -213,6 +219,7 @@ public class GameScreen implements Screen {
         createGUI();
         im = new InputMultiplexer(stage, joystick);
         Gdx.input.setInputProcessor(im);
+        accelTime = new StringBuilder();
         if(Gdx.files.local("highestScores.dat").exists()) {
             ObjectInputStream ois = null;
             try {
